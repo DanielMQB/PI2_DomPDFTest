@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserDetailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('form');
 });
+
+Route::post('submitForm', [UserDetailController::class,'store']);
+
+Route::get('/index',[UserDetailController::class,'index']);
+
+Route::get('/downloadPDF/{id}',[UserDetailController::class,'downloadPDF']);
